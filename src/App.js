@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { useState } from 'react'
+import './App.css'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+   const [Num1, setNum1] = useState(0);
+   const [Num2, setNum2] = useState(0);
+  const [result, setResult] = useState(0);
+   
+  
+
+  function add() {
+    setResult(Number(Num1) + Number(Num2));
+  }
+  function subtract() {
+    setResult(Number(Num1) - Number(Num2));
+  } function Multiply() {
+    setResult(Number(Num1) *Number(Num2));
+  } function Divide() {
+    setResult(Number(Num1) / Number(Num2));
+  }
+  
+    return (
+      <> 
+      <div className="main_container">
+      <div className="container">
+            <div>
+              <input type="number" onChange={(e) => setNum1(e.target.value)} /> <br />
+              <input type="number" onChange={(e) => setNum2(e.target.value)} />
+            </div>
+            <div className='btn'>
+              <button onClick={add}>+</button>
+              <button onClick={subtract}>-</button>
+              <button onClick={Multiply}>*</button>
+              <button onClick={Divide}>/</button>
+            </div>
+
+            <div className='result'> <h1>{result}</h1></div>
+          </div>
+
+      </div>
+         
+      </>
+    
+
+    
+  )
 }
 
-export default App;
+export default App
